@@ -13,7 +13,7 @@ A idéia deste desafio é nos permitir avaliar melhor as habilidades de candidat
 
 Você deve criar um aplicativo que irá listar os repositórios públicos mais populares relacionados à Java no GitHub, usando a [API do GitHub](https://developer.github.com/v3/) para buscar os dados necessários.
 
-O aplicativo deve exibir inicialmente uma lista paginada dos repositórios, ordenados por popularidade decrescente (exemplo de chamada da API: `https://api.github.com/search/repositories?q=language:Java&sort=stars&page=1`).
+O aplicativo deve exibir inicialmente uma lista paginada dos repositórios, ordenados por popularidade decrescente (exemplo de chamada da API: `https://api.github.com/search/repositories?q=language:dart&sort=stars&page=1`).
 
 Cada repositório deve exibir nome, descrição , nome / foto do autor, número de stars, número de forks.
 
@@ -32,7 +32,7 @@ Sua aplicação deve:
 Você ganha mais pontos se:
 
 - possuir boa cobertura de testes unitários no projeto.
-- Utilizar cubit
+- Utilizar Cubit gerência de estado.
 - Injeção de depedência com Get-it.
 - usar padrões de projeto
 - persistir os dados localmente
@@ -43,7 +43,7 @@ Será um grande diferencial:
 
 - contribuir em projetos open source
 - conhecimento nos princípios SOLID
-- conceitos de arquitetura como (DDD, clean architecture)
+- conceitos de arquitetura como (DDD, Clean Architecturee)
 - ter conhecimento em desenvolvimento web
 
 ## Avaliação
@@ -51,6 +51,6 @@ Será um grande diferencial:
 Seu projeto será avaliado de acordo com os seguintes critérios.
 
 1. Sua aplicação preenche os requerimentos básicos?
-2. Estrutura de código utilizando clean architeture 
-3. Injeção de depedência - GetIT
+2. Estrutura de código utilizando Clean Architecture
+3. Injeção de depedência - Get-IT
 
