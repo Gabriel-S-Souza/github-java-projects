@@ -43,6 +43,9 @@ dependencies:
   # helpers and shortcuts
   equatable: ^2.0.5
 
+  # error handling
+  dartz: ^0.10.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,6 +1,6 @@
 import '../domain.dart';
 
-class RepositoryEntity {
+class RepoEntity {
   final int id;
   final String login;
   final String name;
@@ -10,7 +10,7 @@ class RepositoryEntity {
   final int forksCount;
   final ProfileEntity profile;
 
-  RepositoryEntity({
+  RepoEntity({
     required this.id,
     required this.login,
     required this.name,
