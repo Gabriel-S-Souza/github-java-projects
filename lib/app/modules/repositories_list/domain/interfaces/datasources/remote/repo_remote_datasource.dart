@@ -1,5 +1,5 @@
 import '../../../domain.dart';
 
 abstract class RepoRemoteDataSource {
-  Future<RepoEntity> get();
+  Future<List<RepoEntity>> get(int pageNumber);
 }

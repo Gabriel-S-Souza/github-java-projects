@@ -1,5 +1,5 @@
 import '../../../domain.dart';
 
 abstract class ProfileRemoteDataSource {
-  Future<ProfileEntity> get();
+  Future<ProfileEntity> get(String user);
 }
