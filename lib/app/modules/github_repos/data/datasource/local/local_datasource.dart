@@ -8,7 +8,7 @@ class LocalDataSourceImp implements LocalDataSource {
   }
 
   @override
-  Future<void> saveLocally() {
+  Future<void> putLocally() {
     // TODO: implement postLocally
     throw UnimplementedError();
   }

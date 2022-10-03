@@ -7,8 +7,9 @@ import 'github_repos_state.dart';
 
 class GithubReposCubit extends Cubit<GithubReposState> {
   final GithubReposCase _githubReposCase;
-  GithubReposCubit(this._githubReposCase) : super(const GithubReposLoading()) {
-    // getReposFromApi(1);
+  GithubReposCubit(this._githubReposCase)
+      : super(const GithubReposCompleted(repos: [])) {
+    getReposFromApi(1);
   }
 
   Future<void> getReposFromApi(int pageNumber) async {

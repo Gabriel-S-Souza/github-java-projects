@@ -27,7 +27,7 @@ class GithubReposRepositoryImp implements GithubReposRepository {
 
   @override
   Future<void> saveLocally() async {
-    await _localDataSource.saveLocally();
+    await _localDataSource.putLocally();
   }
 
   @override
