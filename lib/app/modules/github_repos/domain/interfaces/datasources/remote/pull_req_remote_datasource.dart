@@ -1,5 +1,5 @@
 import '../../../domain.dart';
 
 abstract class PullReqRemoteDataSource {
-  Future<PullRequestEntity> get();
+  Future<List<PullRequestEntity>> get(String owner, String repo);
 }

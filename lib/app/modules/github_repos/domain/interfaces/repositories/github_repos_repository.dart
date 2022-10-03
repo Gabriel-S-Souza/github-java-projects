@@ -7,5 +7,5 @@ abstract class GithubReposRepository {
   Future<Either<ExceptionApp, List<GithubRepoEntity>>> getReposFromApi(
       int pageNumber);
   Future<void> saveLocally();
-  Future<List<GithubRepoEntity>> getLocally();
+  Future<List<GithubRepoEntity>> getReposFromDevice();
 }

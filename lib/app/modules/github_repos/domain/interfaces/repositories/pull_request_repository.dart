@@ -4,5 +4,6 @@ import '../../../../../core/core.dart';
 import '../../domain.dart';
 
 abstract class PullRequestRepository {
-  Future<Either<ExceptionApp, PullRequestEntity>> get();
+  Future<Either<ExceptionApp, List<PullRequestEntity>>> getPullRequests(
+      String owner, String repo);
 }

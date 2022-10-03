@@ -2,6 +2,10 @@ import 'cubits.dart';
 
 class GithubReposController {
   final GithubReposCubit githubReposCubit;
+  final PullRequestCubit pullRequestCubit;
 
-  GithubReposController(this.githubReposCubit);
+  GithubReposController({
+    required this.githubReposCubit,
+    required this.pullRequestCubit,
+  });
 }

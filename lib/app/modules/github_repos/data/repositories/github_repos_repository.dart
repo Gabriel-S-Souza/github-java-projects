@@ -31,6 +31,6 @@ class GithubReposRepositoryImp implements GithubReposRepository {
   }
 
   @override
-  Future<List<GithubRepoEntity>> getLocally() async =>
+  Future<List<GithubRepoEntity>> getReposFromDevice() async =>
       _localDataSource.getLocally();
 }

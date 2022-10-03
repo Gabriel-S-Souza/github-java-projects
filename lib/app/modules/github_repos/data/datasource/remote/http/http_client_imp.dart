@@ -34,19 +34,21 @@ class HttpClientImp implements HttpClient {
         queryParameters: queryParameters,
       );
       return ResponseModel(
-          statusCode: response.statusCode ?? 0, body: response.data);
+        statusCode: response.statusCode ?? 0,
+        body: response.data,
+      );
     } catch (e) {
       rethrow;
     }
   }
 
   LogInterceptor get _buildInterceptor => LogInterceptor(
-      request: true,
-      error: true,
-      requestBody: true,
-      requestHeader: true,
-      responseHeader: true,
-      responseBody: true,
+      request: false,
+      error: false,
+      requestBody: false,
+      requestHeader: false,
+      responseHeader: false,
+      responseBody: false,
       logPrint: (object) {
         log(object.toString(), name: 'dio', level: 0);
       });
