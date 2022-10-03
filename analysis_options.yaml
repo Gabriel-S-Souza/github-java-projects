@@ -31,7 +31,7 @@ linter:
     evitar_redundant_argument_values: true
     directives_ordering: true
     flutter_style_todos: true
-    lines_longer_than_80_chars: true
+    # lines_longer_than_80_chars: true
     prefer_expression_function_bodies: true
     prefer_interpolation_to_compose_strings: true
     sort_constructors_first: false

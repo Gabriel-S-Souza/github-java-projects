@@ -1,1 +1,1 @@
-export 'repositories_list/repositories_list.dart';
+export 'github_repos/github_repos.dart';

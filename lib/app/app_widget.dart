@@ -15,7 +15,7 @@ class AppWidget extends StatelessWidget {
           scaffoldBackgroundColor: Colors.blueGrey[50],
         ),
         routes: <String, WidgetBuilder>{
-          '/home': (BuildContext context) => const HomeScreen(),
+          '/home': (BuildContext context) => const GithubReposScreen(),
         },
         initialRoute: '/home',
       );
