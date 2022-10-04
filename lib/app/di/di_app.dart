@@ -2,7 +2,6 @@ import 'package:get_it/get_it.dart';
 
 import '../modules/github_repos/data/data.dart';
 import '../modules/github_repos/domain/domain.dart';
-import '../modules/github_repos/presentation/cubits/github_repos_controller.dart';
 import '../modules/github_repos/presentation/presentation.dart';
 
 class Locator {

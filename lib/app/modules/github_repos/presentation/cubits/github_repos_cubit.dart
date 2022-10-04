@@ -9,8 +9,12 @@ class GithubReposCubit extends Cubit<GithubReposState> {
   final GithubReposCase _githubReposCase;
   GithubReposCubit(this._githubReposCase)
       : super(const GithubReposCompleted(repos: [])) {
-    getReposFromApi(1);
+    getReposFromApi(pageNumber);
   }
+
+  final List<GithubRepoEntity> reposList = [];
+
+  int pageNumber = 1;
 
   Future<void> getReposFromApi(int pageNumber) async {
     emit(const GithubReposLoading());
@@ -18,7 +22,8 @@ class GithubReposCubit extends Cubit<GithubReposState> {
     final response = await _githubReposCase.getReposFromApi(pageNumber);
 
     response.fold((exception) => log(exception.message.toString()),
-        (reposList) {
+        (reposListResponse) {
+      reposList.addAll(reposListResponse);
       emit(GithubReposCompleted(repos: reposList));
     });
   }

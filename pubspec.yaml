@@ -40,8 +40,12 @@ dependencies:
   # dependencies injection
   get_it: ^7.2.0
 
+  # layoult utilities
+  auto_size_text: ^3.0.0
+
   # helpers and shortcuts
   equatable: ^2.0.5
+  cached_network_image: ^3.2.2
 
   # error handling
   dartz: ^0.10.1
@@ -61,8 +65,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

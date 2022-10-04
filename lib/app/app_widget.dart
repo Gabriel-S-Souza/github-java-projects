@@ -11,7 +11,7 @@ class AppWidget extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeApp.theme,
         routes: <String, WidgetBuilder>{
-          '/home': (BuildContext context) => const GithubReposScreen(),
+          '/home': (BuildContext context) => GithubReposScreen(),
         },
         initialRoute: '/home',
       );
