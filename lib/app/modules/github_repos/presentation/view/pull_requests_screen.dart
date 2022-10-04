@@ -74,22 +74,28 @@ class _PullRequestsScreenState extends State<PullRequestsScreen> {
                 child: Builder(
                   builder: (context) {
                     if (state is PullRequestCompleted) {
+                      final currentPullList =
+                          state.pullType == PullRequestType.opened
+                              ? state.pullsOpened
+                              : state.pullsClosed;
+
+                      if (currentPullList.isEmpty) {
+                        return const Center(
+                          child: Text('Lista vazia'),
+                        );
+                      }
                       return ListView.separated(
                         padding: const EdgeInsets.only(top: 24),
                         shrinkWrap: true,
                         itemBuilder: (context, index) => ItemPullRequestWidget(
-                          pull: state.pullType == PullRequestType.opened
-                              ? state.pullsOpened[index]
-                              : state.closed[index],
+                          pull: currentPullList[index],
                         ),
                         separatorBuilder: (context, index) => const Divider(
                           thickness: 1,
                           height: 1,
                           indent: 16,
                         ),
-                        itemCount: state.pullType == PullRequestType.opened
-                            ? state.pullsOpened.length
-                            : state.pullsClosed.length,
+                        itemCount: currentPullList.length,
                       );
                     } else if (state is PullRequestLoading) {
                       return const Center(
