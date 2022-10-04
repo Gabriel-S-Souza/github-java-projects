@@ -29,28 +29,29 @@ class PullRequestCubit extends Cubit<PullRequestState> {
       repo!.name,
     );
 
-    response.fold((exception) {
-      log('erro pull');
-      log(exception.message.toString());
-    }, (pullsList) {
-      log('get pull');
-      log(pullsList.toString());
-      _openedPulls = pullsList
-          .where(
-            (element) => element.state == PullRequestType.opened.status,
-          )
-          .toList();
-      _closedPulls = pullsList
-          .where(
-            (element) => element.state == PullRequestType.closed.status,
-          )
-          .toList();
-      return emit(PullRequestCompleted(
-        opened: _openedPulls,
-        closed: _closedPulls,
-        type: pullRequestType,
-      ));
-    });
+    response.fold(
+      (exception) => log(exception.message.toString()),
+      (pullsList) {
+        _openedPulls = pullsList
+            .where(
+              (element) => element.state == PullRequestType.opened.status,
+            )
+            .toList();
+        _closedPulls = pullsList
+            .where(
+              (element) => element.state == PullRequestType.closed.status,
+            )
+            .toList();
+
+        return emit(
+          PullRequestCompleted(
+            opened: _openedPulls,
+            closed: _closedPulls,
+            type: pullRequestType,
+          ),
+        );
+      },
+    );
   }
 
   void setPullRequestType(PullRequestType type) {

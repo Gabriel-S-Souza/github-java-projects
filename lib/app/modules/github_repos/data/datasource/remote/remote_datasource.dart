@@ -11,13 +11,15 @@ class RemoteDataSourceImp implements RemoteDataSource {
   @override
   Future<List<GithubRepoEntity>> getRepos(int pageNumber) async {
     try {
-      final ResponseModel response = await httpClient
-          .get(Constants.searchRepoPath, queryParameters: {
-        'q': 'language:java',
-        'sort': 'stars',
-        'per_page': 20,
-        'page': pageNumber
-      });
+      final ResponseModel response = await httpClient.get(
+        Constants.searchRepoPath,
+        queryParameters: {
+          'q': 'language:java',
+          'sort': 'stars',
+          'per_page': 20,
+          'page': pageNumber,
+        },
+      );
       return (response.body!['items'] as List)
           .map((json) => GithubRepoModel.fromJson(json).toEntity())
           .toList();

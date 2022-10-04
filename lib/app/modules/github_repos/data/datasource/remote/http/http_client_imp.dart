@@ -13,10 +13,11 @@ class HttpClientImp implements HttpClient {
       : _dio = dio ??
             Dio(
               BaseOptions(
-                  baseUrl: Constants.baseUrl,
-                  connectTimeout: 10000,
-                  receiveTimeout: 10000,
-                  headers: {'Content-Type': 'application/json'}),
+                baseUrl: Constants.baseUrl,
+                connectTimeout: 10000,
+                receiveTimeout: 10000,
+                headers: {'Content-Type': 'application/json'},
+              ),
             ) {
     _initialize();
   }
