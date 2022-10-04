@@ -25,7 +25,7 @@ class Locator {
     final pullRequestCubit = PullRequestCubit(pullRequestCase);
 
     // all:-----------------------------------------------------------------
-    final githubReposController = GithubReposController(
+    final githubReposController = GithubFeaturesController(
       githubReposCubit: githubReposCubit,
       pullRequestCubit: pullRequestCubit,
     );
@@ -36,7 +36,7 @@ class Locator {
     getIt.registerFactory(() => pullRequestRepository);
     getIt.registerFactory(() => pullRequestCase);
     getIt.registerFactory(() => pullRequestCubit);
-    getIt.registerSingleton<GithubReposController>(githubReposController);
+    getIt.registerSingleton<GithubFeaturesController>(githubReposController);
   }
 
   static type get<type extends Object>() {

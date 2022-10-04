@@ -10,7 +10,9 @@ class PullRequestRepositoryImp implements PullRequestRepository {
 
   @override
   Future<Either<ExceptionApp, List<PullRequestEntity>>> getPullRequests(
-      String owner, String repo) async {
+    String owner,
+    String repo,
+  ) async {
     try {
       final response = await _dataSource.get(owner, repo);
       return right(response);

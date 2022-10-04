@@ -3,11 +3,11 @@ import 'package:flutter/cupertino.dart';
 import '../../domain/domain.dart';
 import '../cubits/cubits.dart';
 
-class GithubReposController {
+class GithubFeaturesController {
   final GithubReposCubit githubReposCubit;
   final PullRequestCubit pullRequestCubit;
 
-  GithubReposController({
+  GithubFeaturesController({
     required this.githubReposCubit,
     required this.pullRequestCubit,
   });
@@ -25,7 +25,7 @@ class GithubReposController {
     Navigator.pushNamed(context, '/pulls');
   }
 
-  void backToPulls(BuildContext context) {
+  void backToRepos(BuildContext context) {
     Navigator.popUntil(context, ModalRoute.withName('/repos'));
   }
 }

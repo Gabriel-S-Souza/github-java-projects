@@ -7,13 +7,23 @@ import '../cubits.dart';
 
 class PullRequestCubit extends Cubit<PullRequestState> {
   final PullRequestCase _pullRequestCase;
-  PullRequestCubit(this._pullRequestCase) : super(const PullRequestLoading());
+  PullRequestCubit(this._pullRequestCase)
+      : super(
+          const PullRequestLoading(
+            type: PullRequestType.opened,
+          ),
+        );
 
   late GithubRepoEntity? repo;
+  PullRequestType pullRequestType = PullRequestType.opened;
 
-  Future<void> getPullRequestsFromApi() async {
-    emit(const PullRequestLoading());
-    await Future.delayed(const Duration(seconds: 3));
+  List<PullRequestEntity> _openedPulls = [];
+  List<PullRequestEntity> _closedPulls = [];
+
+  Future<void> getOpenedPullRequests() async {
+    emit(
+      PullRequestLoading(type: pullRequestType),
+    );
     final response = await _pullRequestCase.getReposFromApi(
       repo!.login,
       repo!.name,
@@ -25,7 +35,34 @@ class PullRequestCubit extends Cubit<PullRequestState> {
     }, (pullsList) {
       log('get pull');
       log(pullsList.toString());
-      return emit(PullRequestCompleted(pulls: pullsList));
+      _openedPulls = pullsList
+          .where(
+            (element) => element.state == PullRequestType.opened.status,
+          )
+          .toList();
+      _closedPulls = pullsList
+          .where(
+            (element) => element.state == PullRequestType.closed.status,
+          )
+          .toList();
+      return emit(PullRequestCompleted(
+        opened: _openedPulls,
+        closed: _closedPulls,
+        type: pullRequestType,
+      ));
     });
+  }
+
+  void setPullRequestType(PullRequestType type) {
+    if (type == pullRequestType) return;
+
+    pullRequestType = type;
+    emit(
+      PullRequestCompleted(
+        opened: _openedPulls,
+        closed: _closedPulls,
+        type: pullRequestType,
+      ),
+    );
   }
 }

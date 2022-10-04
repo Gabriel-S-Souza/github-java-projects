@@ -18,7 +18,6 @@ class GithubReposCubit extends Cubit<GithubReposState> {
 
   Future<void> getReposFromApi() async {
     emit(const GithubReposLoading());
-    await Future.delayed(const Duration(seconds: 3));
     final response = await _githubReposCase.getReposFromApi(pageNumber);
 
     response.fold((exception) => log(exception.message.toString()),

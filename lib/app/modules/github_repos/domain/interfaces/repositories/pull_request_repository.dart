@@ -5,5 +5,7 @@ import '../../domain.dart';
 
 abstract class PullRequestRepository {
   Future<Either<ExceptionApp, List<PullRequestEntity>>> getPullRequests(
-      String owner, String repo);
+    String owner,
+    String repo,
+  );
 }

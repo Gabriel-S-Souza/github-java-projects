@@ -11,7 +11,7 @@ class ItemRepoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Ink(
-        height: 120,
+        height: 140,
         child: InkWell(
           onTap: () => onTap?.call(repo),
           highlightColor:
@@ -22,7 +22,7 @@ class ItemRepoWidget extends StatelessWidget {
           child: SizedBox(
             height: 120,
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 8, 8, 0),
+              padding: const EdgeInsets.fromLTRB(16, 16, 8, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

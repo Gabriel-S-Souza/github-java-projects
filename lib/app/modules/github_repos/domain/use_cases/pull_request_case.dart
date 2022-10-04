@@ -9,6 +9,8 @@ class PullRequestCase {
   PullRequestCase(this._repository);
 
   Future<Either<ExceptionApp, List<PullRequestEntity>>> getReposFromApi(
-          String owner, String repo) async =>
+    String owner,
+    String repo,
+  ) async =>
       _repository.getPullRequests(owner, repo);
 }

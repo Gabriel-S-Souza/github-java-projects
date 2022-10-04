@@ -9,7 +9,7 @@ import 'widgets/widgets.dart';
 class ReposScreen extends StatelessWidget {
   ReposScreen({super.key});
 
-  final _controller = Locator.get<GithubReposController>();
+  final _controller = Locator.get<GithubFeaturesController>();
 
   @override
   Widget build(BuildContext context) =>
@@ -32,6 +32,7 @@ class ReposScreen extends StatelessWidget {
                     return LazyLoadScrollView(
                       onEndOfPage: _controller.loadReposPaginated,
                       child: ListView.separated(
+                        padding: const EdgeInsets.only(top: 24),
                         itemBuilder: (context, index) => ItemRepoWidget(
                           onTap: (repo) => _controller.goToPulls(context, repo),
                           repo: state.repos[index],
