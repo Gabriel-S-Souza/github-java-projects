@@ -2,8 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../domain/domain.dart';
-import 'github_repos_state.dart';
+import '../../../domain/domain.dart';
+import 'repos_state.dart';
 
 class GithubReposCubit extends Cubit<GithubReposState> {
   final GithubReposCase _githubReposCase;
@@ -35,7 +35,7 @@ class GithubReposCubit extends Cubit<GithubReposState> {
         (reposListResponse) {
       pageNumber++;
       reposList.addAll(reposListResponse);
-      return emit(GithubReposCompleted(repos: reposList));
+      emit(GithubReposCompleted(repos: reposList));
     });
   }
 }

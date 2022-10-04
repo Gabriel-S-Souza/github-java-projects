@@ -9,10 +9,15 @@ class PullRequestCubit extends Cubit<PullRequestState> {
   final PullRequestCase _pullRequestCase;
   PullRequestCubit(this._pullRequestCase) : super(const PullRequestLoading());
 
-  Future<void> getPullRequestsFromApi(String owner, String repo) async {
+  late GithubRepoEntity? repo;
+
+  Future<void> getPullRequestsFromApi() async {
     emit(const PullRequestLoading());
     await Future.delayed(const Duration(seconds: 3));
-    final response = await _pullRequestCase.getReposFromApi(owner, repo);
+    final response = await _pullRequestCase.getReposFromApi(
+      repo!.login,
+      repo!.name,
+    );
 
     response.fold((exception) {
       log('erro pull');

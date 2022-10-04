@@ -15,7 +15,7 @@ class RemoteDataSourceImp implements RemoteDataSource {
           .get(Constants.searchRepoPath, queryParameters: {
         'q': 'language:java',
         'sort': 'stars',
-        'per_page': 10,
+        'per_page': 20,
         'page': pageNumber
       });
       return (response.body!['items'] as List)

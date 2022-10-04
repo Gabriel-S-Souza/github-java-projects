@@ -6,8 +6,8 @@ import '../../../../di/di.dart';
 import '../../github_repos.dart';
 import 'widgets/widgets.dart';
 
-class GithubReposScreen extends StatelessWidget {
-  GithubReposScreen({super.key});
+class ReposScreen extends StatelessWidget {
+  ReposScreen({super.key});
 
   final _controller = Locator.get<GithubReposController>();
 
@@ -32,11 +32,15 @@ class GithubReposScreen extends StatelessWidget {
                     return LazyLoadScrollView(
                       onEndOfPage: _controller.loadReposPaginated,
                       child: ListView.separated(
-                        padding: const EdgeInsets.only(left: 16),
-                        itemBuilder: (context, index) =>
-                            ItemRepoWidget(repo: state.repos[index]),
-                        separatorBuilder: (context, index) =>
-                            const Divider(thickness: 1),
+                        itemBuilder: (context, index) => ItemRepoWidget(
+                          onTap: (repo) => _controller.goToPulls(context, repo),
+                          repo: state.repos[index],
+                        ),
+                        separatorBuilder: (context, index) => const Divider(
+                          thickness: 1,
+                          height: 1,
+                          indent: 16,
+                        ),
                         itemCount:
                             _controller.githubReposCubit.reposList.length,
                       ),

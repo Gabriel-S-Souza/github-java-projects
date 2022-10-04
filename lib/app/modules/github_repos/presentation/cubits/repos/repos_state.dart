@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../../domain/domain.dart';
+import '../../../domain/domain.dart';
 
 abstract class GithubReposState extends Equatable {
   const GithubReposState();
