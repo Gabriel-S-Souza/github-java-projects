@@ -40,7 +40,7 @@ class ItemRepoWidget extends StatelessWidget {
                                 child: AutoSizeText(
                                   repo.name,
                                   style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: 16,
                                     color:
                                         Theme.of(context).colorScheme.primary,
                                     fontWeight: FontWeight.w900,
@@ -75,7 +75,7 @@ class ItemRepoWidget extends StatelessWidget {
                                   Text(
                                     repo.forksCount.toString(),
                                     style: TextStyle(
-                                      fontSize: 18,
+                                      fontSize: 16,
                                       color:
                                           Theme.of(context).colorScheme.surface,
                                       fontWeight: FontWeight.bold,
@@ -94,7 +94,7 @@ class ItemRepoWidget extends StatelessWidget {
                                   Text(
                                     repo.stargazersCount.toString(),
                                     style: TextStyle(
-                                      fontSize: 18,
+                                      fontSize: 16,
                                       color:
                                           Theme.of(context).colorScheme.surface,
                                       fontWeight: FontWeight.bold,
