@@ -42,6 +42,7 @@ dependencies:
 
   # layoult utilities
   auto_size_text: ^3.0.0
+  lazy_load_scrollview: ^1.3.0
 
   # helpers and shortcuts
   equatable: ^2.0.5
