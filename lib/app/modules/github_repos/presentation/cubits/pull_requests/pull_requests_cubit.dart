@@ -24,7 +24,7 @@ class PullRequestCubit extends Cubit<PullRequestState> {
     emit(
       PullRequestLoading(type: pullRequestType),
     );
-    final response = await _pullRequestCase.getReposFromApi(
+    final response = await _pullRequestCase.getPullRequests(
       repo!.login,
       repo!.name,
     );

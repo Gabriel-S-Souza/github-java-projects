@@ -17,7 +17,7 @@ class GithubReposRepositoryImp implements GithubReposRepository {
   Future<Either<ExceptionApp, List<GithubRepoEntity>>> getReposFromApi(
       int pageNumber) async {
     try {
-      final response = await _remoteDataSource.get(pageNumber);
+      final response = await _remoteDataSource.getRepos(pageNumber);
       return right(response);
     } catch (e) {
       //TODO: implement treatments for different types of errors
@@ -26,7 +26,19 @@ class GithubReposRepositoryImp implements GithubReposRepository {
   }
 
   @override
-  Future<void> saveLocally() async {
+  Future<Either<ExceptionApp, List<PullRequestEntity>>> getPullRequests(
+      String owner, String repo) async {
+    try {
+      final response = await _remoteDataSource.getPullRequests(owner, repo);
+      return right(response);
+    } catch (e) {
+      //TODO: implement treatments for different types of errors
+      return left(ServerException(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<void> saveRepoLocally() async {
     await _localDataSource.putLocally();
   }
 

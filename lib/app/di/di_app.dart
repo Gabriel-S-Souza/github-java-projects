@@ -8,23 +8,17 @@ class Locator {
   static void setUpDependencies() {
     final getIt = GetIt.instance;
 
-    // github repos:--------------------------------------------------------
     final githubReposRepository = GithubReposRepositoryImp(
       remoteDataSource: RemoteDataSourceImp(httpClient: HttpClientImp()),
       localDataSource: LocalDataSourceImp(),
     );
+
     final githubReposCase = GithubReposCase(githubReposRepository);
     final githubReposCubit = GithubReposCubit(githubReposCase);
 
-    // pull request:--------------------------------------------------------
-    final pullRequestRepository =
-        PullRequestRepositoryImp(PullReqRemoteDataSourceImp(
-      httpClient: HttpClientImp(),
-    ));
-    final pullRequestCase = PullRequestCase(pullRequestRepository);
+    final pullRequestCase = PullRequestCase(githubReposRepository);
     final pullRequestCubit = PullRequestCubit(pullRequestCase);
 
-    // all:-----------------------------------------------------------------
     final githubReposController = GithubFeaturesController(
       githubReposCubit: githubReposCubit,
       pullRequestCubit: pullRequestCubit,
@@ -33,7 +27,6 @@ class Locator {
     getIt.registerFactory(() => githubReposRepository);
     getIt.registerFactory(() => githubReposCase);
     getIt.registerFactory(() => githubReposCubit);
-    getIt.registerFactory(() => pullRequestRepository);
     getIt.registerFactory(() => pullRequestCase);
     getIt.registerFactory(() => pullRequestCubit);
     getIt.registerSingleton<GithubFeaturesController>(githubReposController);

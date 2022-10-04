@@ -4,11 +4,11 @@ import '../../../../core/core.dart';
 import '../domain.dart';
 
 class PullRequestCase {
-  final PullRequestRepository _repository;
+  final GithubReposRepository _repository;
 
   PullRequestCase(this._repository);
 
-  Future<Either<ExceptionApp, List<PullRequestEntity>>> getReposFromApi(
+  Future<Either<ExceptionApp, List<PullRequestEntity>>> getPullRequests(
     String owner,
     String repo,
   ) async =>
